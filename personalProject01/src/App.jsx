@@ -26,6 +26,12 @@ function App() {
   const handleAddCountry = (event) => {
     event.preventDefault();
 
+    // 유효성 검사
+    if (!formState.country) {
+      alert("국가명을 입력해주세요.")
+      return;  //early return 사용하기
+    }
+
     // 중복된 국가인지 확인
     if (countries.some((c) => c.country === formState.country)) {
       alert("이미 등록된 국가입니다.");
